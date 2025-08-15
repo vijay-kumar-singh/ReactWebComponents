@@ -1,69 +1,48 @@
-# React + TypeScript + Vite
+# React + Tailwind Web Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A self-contained **React-based Web Component** built with Vite and Tailwind CSS, bundled into a **single `.js` file** that you can host and use in any HTML page without a build system.
 
-Currently, two official plugins are available:
+## ✨ Features
+- Written in **React 18** with **TypeScript**.
+- Styled with **Tailwind CSS**, fully encapsulated inside **Shadow DOM**.
+- Bundled into **one JavaScript file** (IIFE) for easy embedding.
+- No external CSS or runtime dependencies — just drop the script and use the tag.
+- Props are passed via HTML attributes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📦 Installation & Build
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/vijay-kumar-singh/react-tailwind-webcomponent.git
+cd react-tailwind-webcomponent
+npm install
+npm install build
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+After Build you will get
+dist/user-card.iife.js
 ```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1️⃣ Usage
+Once built, host the file somewhere (CDN, static hosting, S3, etc.) and import it in any HTML page:
+```bash
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Component Example</title>
+  <script src="https://your-cdn.com/user-card.iife.js"></script>
+</head>
+<body>
+  <user-card
+    name="Jane Smith"
+    email="jane.smith@example.com"
+    phone="+1 (555) 987-6543"
+    location="San Francisco, CA"
+    title="Product Designer"
+    theme="dark"
+    avatar="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?w=150&h=150&fit=crop&crop=face">
+  </user-card>
+</body>
+</html>
 ```
