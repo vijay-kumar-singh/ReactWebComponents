@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optionally add any component-specific tweaks here */
+:root {
+}
